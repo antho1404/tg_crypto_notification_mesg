@@ -1,0 +1,31 @@
+name: binance_api
+sid: binance_api
+description: "Usage of public binance API "
+tasks:
+  getCoinPriceChange:
+    inputs:
+      coinpair:
+        type: String
+      interval:
+        type: String
+      intervalNum:
+        type: Number
+      messageType:
+        type: String
+    outputs:
+      success:
+        data:
+          message:
+            type: String
+          priceChange:
+            type: Number
+            repeated: true
+      error:
+        data:
+          error:
+            type: String
+events:
+  started:
+    data:
+      x:
+        type: Boolean

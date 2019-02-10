@@ -1,0 +1,39 @@
+name: "Get_tweets"
+sid: com.mesg.get_tweets
+description: "Service for received tweets by account name"
+tasks:
+  getTweets:
+    name: "Execute function to get tweets"
+    description: "You can pass any account name"
+    inputs:
+      screen_name: 
+        name: "Twitter Account"
+        type: String
+      count: 
+        name: "Tweets count"
+        type: Number
+      tweet_mode: 
+        name: "Tweets mode"
+        type: String
+    outputs: 
+      success:
+        name: "Success"
+        description: "Output when the task executes successfully"
+        data:
+          tweetsArray:
+            type: Object
+            repeated: true
+      error: 
+        name: "Error"
+        description: "Output when an error occurs"
+        data:
+          message:
+            name: "Message"
+            description: "The error message"
+            type: String
+events:
+  tweetsRecieved:
+    description: "User send command start to bot"
+    data:
+      chatId:
+        type: Number

@@ -1,0 +1,6 @@
+{
+    "coinpair" : "LTCUSDT",
+    "interval" : "1d",
+    "intervalNum" : 7,
+    "messageType" : "simple"
+}

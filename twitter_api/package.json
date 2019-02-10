@@ -1,0 +1,11 @@
+{
+  "name": "mesg service for twitter api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "mesg-js": "^2.0.0",
+    "node-telegram-bot-api": "^0.30.0",
+    "twitter": "^1.7.1"
+  },
+  "author": "joveee <joveee@tuta.io> (https://github.com/joveeee)"
+}

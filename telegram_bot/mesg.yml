@@ -1,0 +1,25 @@
+name: telegramBot
+sid: telegramBot
+description: "Description of my service"
+tasks:
+  sendMessage:
+    inputs:
+      chatId:
+        type: Number
+      text:
+        type: String
+    outputs:
+      success:
+        data:
+          message:
+            type: String
+      error:
+        data:
+          error:
+            type: String
+events:
+  botStarted:
+    description: "User send command start to bot"
+    data:
+      chatId:
+        type: Number
