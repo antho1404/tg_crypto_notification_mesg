@@ -1,6 +1,8 @@
 # tg_crypto_notification_mesg
 Mesg application (services) to send telegram notification about cryptocurrency news and price change
 
+(img)[/https://github.com/joveeee/tg_crypto_notification_mesg/result.gif]
+
 # HOW TO INSTALL 
 !! make sure you have installed mesg-core (see official website) 
 
