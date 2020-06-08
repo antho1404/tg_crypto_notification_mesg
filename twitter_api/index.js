@@ -1,4 +1,4 @@
-const mesg = require('mesg-js').service()
+const liteflow = new (require('@liteflow/service'))()
 var Twitter = require('twitter');
 var config = require('./config.js');
 var T = new Twitter(config);
@@ -9,7 +9,7 @@ var T = new Twitter(config);
 //   tweet_mode: 'extended'
 // }
 
-mesg.listenTask({
+liteflow.listenTask({
   // handler function of taskX
   getTweets: (inputs, outputs) => {
     console.log('inputs',inputs);
@@ -21,7 +21,7 @@ mesg.listenTask({
           tweetsArray: tweets
         })
 
-        mesg.emitEvent({
+        liteflow.emitEvent({
 
         })
 

@@ -1,10 +1,10 @@
-const mesg = require('mesg-js').application();
+const liteflow = require('@liteflow/service').application();
 
 // limit  - 18 000 tweets per 15 minutes
 
 // !! insert bellow your telegram chat id (number)
 const telegramChatId = ;
-const SERVICE_TWITTER = 'com.mesg.get_tweets';
+const SERVICE_TWITTER = 'com.liteflow.get_tweets';
 const SERVICE_TELEGRAM_BOT = 'telegramBot';
 const SERVICE_BINANCE_API = 'binance_api';
 
@@ -23,7 +23,7 @@ const getTweets = () => {
   console.log('start gazzering tweets ...');
   TwitterAccountList.map(twitter => {
     console.log('get tweets for twitter -',twitter.screen_name);
-    mesg.executeTask({
+    liteflow.executeTask({
       serviceID: SERVICE_TWITTER,
       taskKey: 'getTweets',
       inputData: JSON.stringify({ 
@@ -42,7 +42,7 @@ setInterval(getTweets, 10000);
 // setInterval(getTweets, 900000);
 
 
-const stream = mesg.listenResult({
+const stream = liteflow.listenResult({
   serviceID: SERVICE_TWITTER
 }).on('data', (result) => {
   console.log('result recieved')
@@ -70,7 +70,7 @@ const stream = mesg.listenResult({
           }
         })
 
-        mesg.executeTaskAndWaitResult({
+        liteflow.executeTaskAndWaitResult({
           serviceID: SERVICE_BINANCE_API,
           taskKey: 'getCoinPriceChange',
           inputData: JSON.stringify({ 
@@ -86,7 +86,7 @@ const stream = mesg.listenResult({
             })
             let priceStr = priceChange.join(' | ');
             console.log('send telegram message ...');
-            mesg.executeTask({
+            liteflow.executeTask({
               serviceID: SERVICE_TELEGRAM_BOT,
               taskKey: 'sendMessage',
               inputData: JSON.stringify({ 
